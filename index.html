@@ -3,11 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>my web</title>
-  <link rel="stylesheet" href="style.css">
+  <title>María · Portafolio</title>
+  <meta name="description" content="Portafolio de María, estudiante de Ingeniería Informática en la Universidad de Sevilla.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #EEF0EA;
+      --ink: #1D2521;
+      --muted: #56605A;
+      --rule: #CBD0C6;
+      --link: #2A5C8C;
+      --lcd: #C5D1A8;
+      --lcd-ink: #1E2A17;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #151A17;
+        --ink: #E6EAE2;
+        --muted: #9AA59D;
+        --rule: #2B332E;
+        --link: #8DB8E0;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.2em;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--link);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* Portada: una pantalla de LCD, como la de una consola portátil */
+    .screen {
+      background-color: var(--lcd);
+      background-image:
+        linear-gradient(rgba(30, 42, 23, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 42, 23, 0.10) 1px, transparent 1px);
+      background-size: 6px 6px;
+      color: var(--lcd-ink);
+      border: 4px solid var(--lcd-ink);
+      border-radius: 6px;
+      padding: clamp(1.5rem, 6vw, 3rem);
+      margin-bottom: 3.5rem;
+    }
+
+    .screen h1 {
+      font-family: "Pixelify Sans", "Courier New", monospace;
+      font-weight: 700;
+      font-size: clamp(3rem, 14vw, 6rem);
+      line-height: 1;
+      margin: 0 0 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 0.5em;
+      height: 0.85em;
+      margin-left: 0.1em;
+      background: var(--lcd-ink);
+      vertical-align: -0.05em;
+      animation: blink 1.1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; }
+    }
+
+    .screen p {
+      margin: 0;
+      font-size: 1.125rem;
+      max-width: 32rem;
+    }
+
+    section { margin-bottom: 3.25rem; }
+
+    h2 {
+      font-family: "Pixelify Sans", "Courier New", monospace;
+      font-weight: 500;
+      font-size: 1.75rem;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      line-height: 1.3;
+      margin: 0 0 0.25rem;
+    }
+
+    p { margin: 0 0 1rem; max-width: 38rem; }
+
+    .muted { color: var(--muted); }
+
+    /* Proyectos: filas separadas por una línea, no tarjetas */
+    .project {
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .project:last-child { border-bottom: 1px solid var(--rule); }
+
+    .project p { margin-bottom: 0.5rem; }
+
+    .stack {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    dl { margin: 0; }
+
+    dt { font-weight: 700; }
+
+    dd {
+      margin: 0 0 1rem;
+      color: var(--muted);
+    }
+
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .links li { margin-bottom: 0.4rem; }
+
+    footer {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
-  <h1>hello</h1>
-  <p>this is a test</p>
+  <main>
+
+    <!-- PORTADA -->
+    <header class="screen">
+      <!-- EDITA: pon tu nombre o el que quieras mostrar -->
+      <h1>María<span class="cursor" aria-hidden="true"></span></h1>
+      <p>Estudiante de último curso de Ingeniería Informática. Esto es una plantilla por el momento.</p>
+    </header>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>Estudio el Grado en Ingeniería Informática (Tecnologías Informáticas) en la Universidad de Sevilla.</p>
+      <p>Mas info ...</p>
+      <!-- EDITA: añade lo que quieras contar (idiomas, qué buscas, aficiones) -->
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+
+      <article class="project">
+        <h3>Emulador CHIP-8</h3>
+        <p>Emulador del sistema CHIP-8 con interfaz de depuración. TFG.</p>
+        <p class="stack">C/C++, SDL3, Dear ImGui</p>
+        <!-- EDITA: cambia NOMBRE-DEL-REPO por el nombre real de tu repositorio -->
+        <a href="https://github.com/mtc124/NOMBRE-DEL-REPO">Ver código en GitHub</a>
+      </article>
+
+      <article class="project">
+        <h3>OTRO PROYECTO</h3>
+        <p>Info</p>
+        <p class="stack">más info</p>
+        <!-- EDITA: enlace al repositorio del proyecto -->
+        <a href="https://github.com/mtc124/NOMBRE-DEL-REPO">Ver código en GitHub</a>
+      </article>
+
+      <!-- Para añadir otro proyecto, copia un bloque <article class="project"> entero -->
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section id="formacion">
+      <h2>Formación</h2>
+      <dl>
+        <dt>Grado en Ingeniería Informática, Tecnologías Informáticas</dt>
+        <dd>Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla</dd>
+      </dl>
+      <!-- EDITA: añade cursos, certificados o años si quieres -->
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <ul class="links">
+        <li><a href="https://github.com/mtc124">GitHub</a></li>
+        <!-- EDITA: cambia estos dos enlaces por los tuyos -->
+        <li><a href="https://www.linkedin.com/in/TU-USUARIO">LinkedIn</a></li>
+        <li><a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    Hecha con HTML y CSS, publicada con GitHub Pages.
+  </footer>
 </body>
 </html>
