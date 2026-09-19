@@ -12,23 +12,15 @@
 
   <style>
     :root {
-      --bg: #EEF0EA;
-      --ink: #1D2521;
-      --muted: #56605A;
-      --rule: #CBD0C6;
-      --link: #2A5C8C;
-      --lcd: #C5D1A8;
-      --lcd-ink: #1E2A17;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #151A17;
-        --ink: #E6EAE2;
-        --muted: #9AA59D;
-        --rule: #2B332E;
-        --link: #8DB8E0;
-      }
+      color-scheme: dark;
+      --bg: #0B120C;
+      --ink: #D6E4C2;
+      --muted: #8DA079;
+      --rule: #243322;
+      --link: #8FE04A;
+      --green: #7FD13B;
+      --lcd: #B4CC86;
+      --lcd-ink: #0E1A0B;
     }
 
     * { box-sizing: border-box; }
@@ -42,6 +34,8 @@
       font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: 1.0625rem;
       line-height: 1.65;
+      /* Cursor propio: flecha verde con borde negro (quita esta línea si no lo quieres) */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Cpath d='M2 1v12l3-3 2.5 5 2-1-2.5-5H11z' fill='%23B4CC86' stroke='%230E1A0B'/%3E%3C/svg%3E") 3 2, auto;
     }
 
     main {
@@ -53,24 +47,28 @@
     a {
       color: var(--link);
       text-underline-offset: 0.2em;
+      cursor: pointer;
     }
 
+    a:hover { color: var(--ink); }
+
     a:focus-visible {
-      outline: 3px solid var(--link);
+      outline: 3px solid var(--green);
       outline-offset: 3px;
       border-radius: 2px;
     }
 
-    /* Portada: una pantalla de LCD, como la de una consola portátil */
+    /* Portada: pantalla LCD verde sobre un fondo negro */
     .screen {
       background-color: var(--lcd);
       background-image:
-        linear-gradient(rgba(30, 42, 23, 0.10) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30, 42, 23, 0.10) 1px, transparent 1px);
+        linear-gradient(rgba(14, 26, 11, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 26, 11, 0.12) 1px, transparent 1px);
       background-size: 6px 6px;
       color: var(--lcd-ink);
-      border: 4px solid var(--lcd-ink);
+      border: 4px solid #1F2E1B;
       border-radius: 6px;
+      box-shadow: 0 0 0 2px var(--green), 0 0 40px rgba(127, 209, 59, 0.18);
       padding: clamp(1.5rem, 6vw, 3rem);
       margin-bottom: 3.5rem;
     }
@@ -116,6 +114,7 @@
       font-size: 1.75rem;
       line-height: 1.2;
       margin: 0 0 1rem;
+      color: var(--green);
     }
 
     h3 {
@@ -176,14 +175,14 @@
     <header class="screen">
       <!-- EDITA: pon tu nombre o el que quieras mostrar -->
       <h1>María<span class="cursor" aria-hidden="true"></span></h1>
-      <p>Estudiante de último curso de Ingeniería Informática. Esto es una plantilla por el momento.</p>
+      <p>Estudiante de último curso de Ingeniería Informática. Me gusta entender cómo funcionan las máquinas por dentro.</p>
     </header>
 
     <!-- SOBRE MÍ -->
     <section id="sobre-mi">
       <h2>Sobre mí</h2>
-      <p>Estudio el Grado en Ingeniería Informática (Tecnologías Informáticas) en la Universidad de Sevilla.</p>
-      <p>Mas info ...</p>
+      <p>Estudio el Grado en Ingeniería Informática (Tecnologías Informáticas) en la Universidad de Sevilla. Me interesan el hardware, la administración de sistemas y la emulación, y me gusta aprender construyendo cosas.</p>
+      <p>Fuera de la carrera me muevo por el mundo retro: consolas clásicas, ROM hacking y chiptune.</p>
       <!-- EDITA: añade lo que quieras contar (idiomas, qué buscas, aficiones) -->
     </section>
 
@@ -193,16 +192,16 @@
 
       <article class="project">
         <h3>Emulador CHIP-8</h3>
-        <p>Emulador del sistema CHIP-8 con interfaz de depuración. TFG.</p>
+        <p>Emulador del sistema CHIP-8 con interfaz de depuración. Es la base de mi Trabajo Fin de Grado.</p>
         <p class="stack">C/C++, SDL3, Dear ImGui</p>
         <!-- EDITA: cambia NOMBRE-DEL-REPO por el nombre real de tu repositorio -->
         <a href="https://github.com/mtc124/NOMBRE-DEL-REPO">Ver código en GitHub</a>
       </article>
 
       <article class="project">
-        <h3>OTRO PROYECTO</h3>
-        <p>Info</p>
-        <p class="stack">más info</p>
+        <h3>API de estadísticas de cólera</h3>
+        <p>API REST con frontend en Svelte para consultar y gestionar estadísticas de cólera. Proyecto de grupo de la universidad.</p>
+        <p class="stack">API REST, Svelte</p>
         <!-- EDITA: enlace al repositorio del proyecto -->
         <a href="https://github.com/mtc124/NOMBRE-DEL-REPO">Ver código en GitHub</a>
       </article>
@@ -238,3 +237,4 @@
   </footer>
 </body>
 </html>
+
